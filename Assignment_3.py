@@ -1,6 +1,8 @@
 import numpy as np
 import tensorflow as tf
 import matplotlib.pyplot as plt
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
 
@@ -53,10 +55,10 @@ data3 = split_data(x_scaled, y_cubic)
 # 5️⃣ Model
 # ---------------------------------------------------------
 def build_model(neurons=32):
-    model = tf.keras.Sequential([
-        tf.keras.layers.Dense(neurons, activation='relu', input_shape=(1,)),
-        tf.keras.layers.Dense(neurons, activation='relu'),
-        tf.keras.layers.Dense(1)
+    model = Sequential([
+            Dense(neurons, activation='relu', input_shape=(1,)),
+            Dense(neurons, activation='relu'),
+            Dense(1)
     ])
 
     model.compile(
@@ -72,6 +74,7 @@ early_stop = tf.keras.callbacks.EarlyStopping(
     monitor='val_loss',
     patience=20,
     restore_best_weights=True
+    
 )
 
 # ---------------------------------------------------------

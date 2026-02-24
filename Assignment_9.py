@@ -39,7 +39,7 @@ def visualize_feature_maps(model, img_array, preprocess_fn, layer_names, title):
 
 
 # -------- MAIN --------
-img_path = "/content/sample_data/WhatsApp Image 2023-05-08 at 23.18.57.jpg"   
+img_path = "/Users/akhi/Desktop/DIP/images/flower.png"   
 img_array = load_img(img_path)
 
 # ---- VGG16 ----
